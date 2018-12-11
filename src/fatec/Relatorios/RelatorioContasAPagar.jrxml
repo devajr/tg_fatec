@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio ContasAPgar" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91711756-56b4-441e-9316-b05bd8f12a15">
+	<property name="ireport.zoom" value="1.0000000000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#8FAFCC">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="d83cb8e8-a1bf-4fcc-b497-094557e8ee16"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="numLancamento" class="java.lang.String"/>
+	<field name="numParcela" class="java.lang.String"/>
+	<field name="dataVenc" class="java.lang.String"/>
+	<field name="valorParcela" class="java.lang.Double"/>
+	<field name="banco.nome" class="java.lang.String"/>
+	<field name="fornecedor.codFornec" class="java.lang.String"/>
+	<field name="subconta" class="java.lang.String"/>
+	<field name="subconta.nome" class="java.lang.String"/>
+	<field name="fornecFisica.nome" class="java.lang.String"/>
+	<field name="fornecJuridica.nomeFan" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{valorParcela}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="25" width="168" height="36" uuid="2a3a75f8-64ab-4658-88e2-c0ea4d81819a"/>
+				<textElement>
+					<font fontName="Arial" size="18"/>
+				</textElement>
+				<text><![CDATA[Contas a Pagar ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="5" width="72" height="20" uuid="be29fe8e-277e-4425-9349-90f9d8fd1b2a"/>
+				<text><![CDATA[Data Emissao:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="21" width="74" height="50" uuid="88564acf-4b6c-4dc0-9124-9ccd2b59a8b8"/>
+				<imageExpression><![CDATA["C:\\Users\\Devair\\Documents\\NetBeansProjects\\prjContasaPagar\\src\\fatec\\resources\\logopp.png"]]></imageExpression>
+			</image>
+			<textField pattern="HH:mm">
+				<reportElement x="526" y="5" width="100" height="20" uuid="bc146514-31f5-44af-b00d-1136a319e9ca"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="500" y="5" width="26" height="20" uuid="ae822550-13b6-4505-baa2-5c7afd457b4e"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="73" y="5" width="100" height="20" uuid="21221b40-bce3-418a-b051-dd3f5ff99784"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="1" width="74" height="20" uuid="655dee72-dc34-4a96-87fd-240761935337"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Lanc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="73" height="20" uuid="74124d1b-fdaa-4d18-8db1-7c331940157f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Parcela]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="0" width="79" height="20" uuid="5852c8bb-ae8b-40bd-bef0-873865ca62a1"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Parcela]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="1" width="70" height="20" uuid="c10b6bac-f18d-4ffe-8111-c2998d4795c8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="1" width="69" height="20" uuid="d770beab-f3a2-4c34-a8c5-05383c340064"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Venc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="1" width="71" height="20" uuid="d3311a4b-70d3-4b92-945b-e4c04f5cdf0f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subconta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="1" width="64" height="20" uuid="f5a3dba3-84ca-48dd-823f-8497ddf71bf0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="26" y="2" width="500" height="20" backcolor="#E5F9F9" uuid="995c1778-678e-4a10-bdf6-376d6c60d23a">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT}%2==0]]></printWhenExpression>
+				</reportElement>
+			</frame>
+			<textField>
+				<reportElement x="26" y="2" width="74" height="20" uuid="fb0a7c49-1bee-4ef5-ab8a-a3d661624b86"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numLancamento}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="5" width="70" height="20" uuid="cbb4747a-6afa-43cc-9937-8d89a2ca1185"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fornecFisica.nome}==null? $F{fornecJuridica.nomeFan}: $F{fornecFisica.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="5" width="69" height="20" uuid="eab22fca-ab8e-4b42-ab4b-4bb8b7847b13"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dataVenc}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="2" width="73" height="20" uuid="4295474d-560c-4263-bffc-f6dbe1614273"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numParcela}.toString()]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="242" y="5" width="79" height="20" uuid="9b864cbf-952d-401a-8d9a-ef3795512fb6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{valorParcela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="5" width="71" height="20" uuid="b0822196-dac8-4ce0-a693-5a31253740a8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{subconta.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="5" width="64" height="20" uuid="4e778a89-7c49-445f-b9d8-d708144ccef3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{banco.nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="9a51b5f6-932e-41fb-9d8f-dda3c9f2b60d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="13" width="555" height="1" uuid="4b109549-5dbc-4740-acef-46d40e445f73"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="22" width="41" height="20" uuid="7a753260-1051-4c96-8d4c-aaf2a4a70ec1"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="455" y="22" width="100" height="20" uuid="1759f865-6669-41a4-8adc-79014d972b9d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

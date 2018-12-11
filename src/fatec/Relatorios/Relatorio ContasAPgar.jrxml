@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio ContasAPgar" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91711756-56b4-441e-9316-b05bd8f12a15">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#8FAFCC">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="8c411476-d684-4cb4-8a23-fd80cc72ea4b"/>
+	<subDataset name="Table Dataset 2" uuid="b01069e6-c9d7-45af-a4ba-208efc492846"/>
+	<subDataset name="Dataset1" uuid="98608710-6cfd-4700-a6f0-08b87c9b6f34">
+		<queryString language="SQL">
+			<![CDATA[Select tituloparcela.numLanc,tituloparcela.numParc,tituloparcela.valorparcela,
+              to_char(tituloparcela.datavenc,'dd/mm/yyyy'),
+            titulo.codfornec,banco.nome,subconta.nomesubconta,titulo.historico
+            from tituloparcela,titulo, banco,subconta
+            where titulo.numlanc=tituloParcela.numlanc and titulo.codbanco=banco.codbanco and subconta.codsubconta=titulo.codsubconta]]>
+		</queryString>
+		<field name="NUMLANC" class="java.math.BigDecimal"/>
+		<field name="NUMPARC" class="java.math.BigDecimal"/>
+		<field name="VALORPARCELA" class="java.math.BigDecimal"/>
+		<field name="TO_CHAR(TITULOPARCELA.DATAVENC,&apos;DD/MM/YYYY&apos;)" class="java.lang.String"/>
+		<field name="CODFORNEC" class="java.math.BigDecimal"/>
+		<field name="NOME" class="java.lang.String"/>
+		<field name="NOMESUBCONTA" class="java.lang.String"/>
+		<field name="HISTORICO" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[Select tituloparcela.numLanc,tituloparcela.numParc,tituloparcela.valorparcela,
+              to_char(tituloparcela.datavenc,'dd/mm/yyyy'),
+            titulo.codfornec,banco.nome,subconta.nomesubconta,titulo.historico
+            from tituloparcela,titulo, banco,subconta
+            where titulo.numlanc=tituloParcela.numlanc and titulo.codbanco=banco.codbanco and subconta.codsubconta=titulo.codsubconta]]>
+	</queryString>
+	<field name="NUMLANC" class="java.math.BigDecimal"/>
+	<field name="NUMPARC" class="java.math.BigDecimal"/>
+	<field name="VALORPARCELA" class="java.math.BigDecimal"/>
+	<field name="TO_CHAR(TITULOPARCELA.DATAVENC,&apos;DD/MM/YYYY&apos;)" class="java.lang.String"/>
+	<field name="CODFORNEC" class="java.math.BigDecimal"/>
+	<field name="NOME" class="java.lang.String"/>
+	<field name="NOMESUBCONTA" class="java.lang.String"/>
+	<field name="HISTORICO" class="java.lang.String"/>
+	<variable name="NUMLANC_1" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{NUMLANC}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="25" width="168" height="36" uuid="2a3a75f8-64ab-4658-88e2-c0ea4d81819a"/>
+				<textElement>
+					<font fontName="Arial" size="18"/>
+				</textElement>
+				<text><![CDATA[Contas a Pagar ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="5" width="72" height="20" uuid="be29fe8e-277e-4425-9349-90f9d8fd1b2a"/>
+				<text><![CDATA[Data Emissao:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="11" width="74" height="50" uuid="88564acf-4b6c-4dc0-9124-9ccd2b59a8b8"/>
+				<imageExpression><![CDATA["C:\\Users\\Devair\\Documents\\NetBeansProjects\\prjContasaPagar\\src\\fatec\\resources\\logopp.png"]]></imageExpression>
+			</image>
+			<textField pattern="HH.mm">
+				<reportElement x="509" y="5" width="100" height="20" uuid="bc146514-31f5-44af-b00d-1136a319e9ca"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="483" y="5" width="26" height="20" uuid="ae822550-13b6-4505-baa2-5c7afd457b4e"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="107" y="5" width="100" height="20" uuid="21221b40-bce3-418a-b051-dd3f5ff99784"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="139" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="0" y="10" width="555" height="129" uuid="6249f0db-0744-4166-924f-c1fd9f5f9874"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="09b0becc-7ab0-4dc6-8135-dde23ce9df98">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="54" uuid="2d91039c-e2da-4b45-8c56-51626d242d6a">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" uuid="61b838b1-ffc5-4088-9425-778470f17740"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[N° Lanc]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="0302ca71-089c-4594-ba0e-716b841fce12"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{NUMLANC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="59" uuid="3b8cfeb5-5184-4cb7-81c8-b7102ff393b7">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="59" height="30" uuid="3fc7a282-88e4-40c1-9401-744223488692"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[N° Parc]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="59" height="20" uuid="643620bf-ce65-43ac-8ed4-342f6a5c056d"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{NUMPARC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="56" uuid="4a862c25-2fcc-4783-825d-a85d2f6b6d92">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="53" height="30" uuid="8fb915cd-81ce-495c-b609-51bee7949a48"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Valor]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="53" height="20" uuid="a5152da7-85f5-4f5f-a5c9-d2bf1bd288bb"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{VALORPARCELA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="58" uuid="0ee6afba-bf38-49d1-a7fd-156bbbe1c2d4">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="55" height="30" uuid="004feaab-82ef-4a0d-8b10-e3115b679a12"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Data Venc]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="20" uuid="7a393769-630c-49e0-8685-f82c8c3c6caf"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{TO_CHAR(TITULOPARCELA.DATAVENC,'DD/MM/YYYY')}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="be575e2b-b14d-43e9-b19a-83138c124530">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="ad429572-6e0e-4b7c-8623-077353f61fde"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[COD FORNEC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="3544bf68-e3fd-42b9-af53-e6d208b4b2ff"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{CODFORNEC}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="ef1f5569-43e2-4133-b6fd-5eb8ad7d5cac">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="ac414242-2755-4386-8e84-a75737d25206"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Banco]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="5ddbb2c0-d7ea-41c5-a769-d8682b47e17f"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{NOME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="59aa43e6-e8a6-48df-940e-5658024926a5">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="0bfec7ff-a1d5-40a6-b18e-28850d4f8f75"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Subconta]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="8396bc03-b018-4ceb-98b7-d3431b79a9e6"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{NOMESUBCONTA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="102" uuid="d72cdf7c-70cc-41b2-8d8b-fe942bf16caf">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="2a52eb29-1317-4f8e-ac03-ff2c05407119"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[HISTORICO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="1bf3940b-7b8e-42fa-8e1f-9936165f1611"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{HISTORICO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="9a51b5f6-932e-41fb-9d8f-dda3c9f2b60d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
